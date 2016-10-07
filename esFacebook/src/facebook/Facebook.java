@@ -64,14 +64,10 @@ public class Facebook {
 
 	
 	public List <Utente> getAmiciDiAmici(String nome,String cognome){
-		Utente u1tmp=null;
 		List<Utente> listaAmici;
 		List <Utente> listatemp=new ArrayList<Utente>();
-		for(Utente u:utenti){
-			if(nome.equals(u.getNome())&& cognome.equals(u.getCognome())){
-				u1tmp=u;
-			}
-		}
+		
+		Utente u1tmp = trovaUtente(nome, cognome);
 		listaAmici=u1tmp.getAmici();
 		for(Utente u:listaAmici){
 			listatemp.add(u);
@@ -87,6 +83,7 @@ public class Facebook {
 			}
 			return null;
 		}
+
 		
 
 
@@ -118,6 +115,21 @@ public String getAmiciInComune(String nomeCognome1 , String nomeCognome2 ) {
 
 
 
+
+private Utente trovaUtente(String nome, String cognome) {
+	Utente u1tmp=new Utente();
+	for(Utente u:utenti){
+		if(nome.equals(u.getNome())&& cognome.equals(u.getCognome())){
+			u1tmp=u;
+		}
+	}
+	return u1tmp;
+}
+
+
+
+
+
 private String scorreLista(Utente u1, Utente u2, String amiciInComune) {
 	for(Utente u : u1.getAmici()){
 		for(Utente ut : u2.getAmici()){
@@ -127,7 +139,16 @@ private String scorreLista(Utente u1, Utente u2, String amiciInComune) {
 		}
 	}
 	return amiciInComune;
-}}
+}
+
+
+
+
+
+
+
+
+}
 						
 				
 				
