@@ -90,7 +90,6 @@ public class TestCampionato {
 				ammoniti.add(g1);
 				List<Giocatore> espulsi=new ArrayList<Giocatore>();
 				sc.registraPartita(c, s1, s2, 3, 2, date, goleadori, espulsi, ammoniti);
-				
 				sc.registraPartita(c, s1, s3, 2, 1, date, goleadori, espulsi, ammoniti);
 				
 //				System.out.println(c.stampaGiocatori(c.getMappaGiocatore()));
