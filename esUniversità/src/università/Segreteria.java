@@ -21,7 +21,7 @@ public class Segreteria {
 		if(stemp==null){
 			Studente studenteNuovo=new Studente(nome,cognome);
 			studenteNuovo.setMatricola(cognome.substring(0, 2)+(u.getStudenti().size()+1));
-			studenti.add(studenteNuovo);
+			u.aggiungiStudente(studenteNuovo);
 			return studenteNuovo;
 			
 		}else{
@@ -39,7 +39,7 @@ public class Segreteria {
 		}
 		if(dtemp==null){
 			Docente docenteNuovo=new Docente(nome,cognome,codiceFiscale);
-			docenti.add(docenteNuovo);
+			u.aggiungiDocente(docenteNuovo);
 			return docenteNuovo;
 			} else {
 				return dtemp;
@@ -56,7 +56,7 @@ public class Segreteria {
 		}
 		if(ctemp==null){
 			Corso corsoNuovo=new Corso(nome,ore);
-			corsi.add(corsoNuovo);
+			u.aggiungiCorso(corsoNuovo);
 			return corsoNuovo;
 			
 		} else{
@@ -65,10 +65,20 @@ public class Segreteria {
 		
 	}
 	
+//	public boolean aggiungiStudenteACorso(Università u,Studente s, Corso c){
+//		boolean res=false;
+//		if(s.isValid() && c.isValid()){
+//			c.getStudenti().add(s);
+//			res=true;
+//		}
+//		return res;
+//				
+//	}
+	
 	public boolean aggiungiStudenteACorso(Università u,Studente s, Corso c){
 		boolean res=false;
-		if(s.isValid() && c.isValid()){
-			c.getStudenti().add(s);
+		if((!c.getStudenti().contains(s)) && (u.getStudenti().contains(s))){
+			c.aggiungiStudente(s);
 			res=true;
 		}
 		return res;
@@ -77,22 +87,32 @@ public class Segreteria {
 	
 	public boolean aggiungiDocenteACorso(Università u,Docente d, Corso c){
 		boolean res=false;
-		List<Docente> docentiCorso=c.getDocenti();
-		//Studente sctemp=null;
-		for(Docente d1:docentiCorso){
-			if(d1.getCodiceFiscale().equals(d.getCodiceFiscale())){
-				System.out.println("Docente presente");
-				
-			}else{
-				d1.setNome(d.getNome());
-				d1.setCognome(d.getCognome());
-				d1.setCodiceFiscale(d.getCodiceFiscale());
-				res= true;
-			}
-		
-			
+		if(!c.getDocenti().contains(d) && u.getDocenti().contains(d)){
+			c.aggiungiDocente(d);
+			res=true;
 		}
 		return res;
+				
+	}
+	
+//	public boolean aggiungiDocenteACorso(Università u,Docente d, Corso c){
+//		boolean res=false;
+//		List<Docente> docentiCorso=c.getDocenti();
+//		//Studente sctemp=null;
+//		for(Docente d1:docentiCorso){
+//			if(d1.getCodiceFiscale().equals(d.getCodiceFiscale())){
+//				System.out.println("Docente presente");
+//				
+//			}else{
+//				d1.setNome(d.getNome());
+//				d1.setCognome(d.getCognome());
+//				d1.setCodiceFiscale(d.getCodiceFiscale());
+//				res= true;
+//			}
+//		
+//			
+//		}
+//		return res;
 		
 				
 	}	
@@ -103,4 +123,4 @@ public class Segreteria {
 		
 
 
-}
+

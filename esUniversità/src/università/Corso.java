@@ -42,6 +42,17 @@ public class Corso implements ValidaDato {
 		this.docenti = docenti;
 	}
 	
+	public void aggiungiStudente(Studente s){
+		studenti.add(s);
+	}
+	
+	public void aggiungiDocente(Docente d){
+		docenti.add(d);
+	}
+	
+	
+
+
 	@Override
 	public boolean isValid() {
 		boolean res=false;

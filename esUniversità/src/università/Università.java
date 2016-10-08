@@ -52,6 +52,35 @@ public class Università {
 		this.docenti = docenti;
 	}
 	
+	public void aggiungiStudente(Studente s){
+		studenti.add(s);
+	}
+	
+	public void aggiungiDocente(Docente d){
+		docenti.add(d);
+	}
+	
+	public void aggiungiCorso(Corso c){
+		corsi.add(c);
+	}
+	
+	public String stampaCorsi(){
+		
+		String str="";
+		for(Corso ct: corsi){
+			str+=("\n"+ct.getNome()+" "+"Ore: "+ct.getOre());
+		}
+		return str;
+	}
+	
+public String stampaDocenti(){
+		
+		String str="";
+		for(Docente dt: docenti){
+			str+=("\n"+dt.getNome()+" "+dt.getCognome());
+		}
+		return str;
+	}
 	
 	
 
