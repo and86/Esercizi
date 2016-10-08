@@ -31,7 +31,7 @@ public class TestFacebook {
 		
 		
 		System.out.println("Amici di utente: ");
-		for(Utente ut: f.getAmiciDiUnUtente("aaaa","aaaa")){
+		for(Utente ut: f.getAmiciDiUnUtente("eeeee","eeee")){
 			System.out.println(ut.getNome()+" "+ut.getCognome());
 			
 		}

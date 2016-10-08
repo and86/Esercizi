@@ -65,23 +65,22 @@ public class Facebook {
 	
 	public List <Utente> getAmiciDiAmici(String nome,String cognome){
 		List<Utente> listaAmici;
-		List <Utente> listatemp=new ArrayList<Utente>();
+		List <Utente> amiciDiAmici=new ArrayList<Utente>();
 		
-		Utente u1tmp = trovaUtente(nome, cognome);
-		listaAmici=u1tmp.getAmici();
-		for(Utente u:listaAmici){
-			listatemp.add(u);
-			List<Utente> amiciAmici=u.getAmici();
-			for(Utente utmp:amiciAmici){
-				if((utmp.getNome().equals(nome)) && (utmp.getCognome().equals(cognome)) && (listaAmici.contains(utmp)==false)){
-					listatemp.add(utmp);
-					return listatemp;
+		Utente u = trovaUtente(nome, cognome);
+		listaAmici=u.getAmici();
+		for(Utente ut:listaAmici){	//ciclo sugli amici dell'utente
+//			listatemp.add(u);
+//			List<Utente> amiciAmici=u.getAmici();
+			for(Utente utmp:ut.getAmici()){	
+				if((!amiciDiAmici.contains(utmp)) && (!u.getAmici().contains(utmp))){
+					amiciDiAmici.add(utmp);
 				}
-									
 			}
-							
-			}
-			return null;
+		}
+					amiciDiAmici.remove(u);		//rimuovo dalla lista l'utente stesso
+					return amiciDiAmici;
+			
 		}
 
 		
