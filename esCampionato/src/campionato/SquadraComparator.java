@@ -11,7 +11,7 @@ public class SquadraComparator implements Comparator <Squadra> {
 		this.c=c;
 	}
 	
-
+	
 	@Override
 	public int compare(Squadra s1, Squadra s2) {
 		int valPunti=s2.getPunti()-s1.getPunti();
