@@ -33,12 +33,21 @@ public static void main(String[] args) {
 	
 	System.out.println(u.stampaCorsi());
 	
-	System.out.println("Aggiungi studente a corso");
+	System.out.println("\nAggiungi studente a corso");
 
 	if(s.aggiungiStudenteACorso(u, s1, c1)==true){
 		System.out.println("Studente aggiunto");
 	}else{
-		System.out.println("Studente già in corso");}
+		System.out.println("Studente già in corso");
+	}
+	
+	System.out.println("\nAggiungi docente a corso");
+
+	if(s.aggiungiDocenteACorso(u, d1, c1)==true){
+		System.out.println("Docente assegnato al corso");
+	}else{
+		System.out.println("Docente già assegnato al corso");}
+	
 	
 	
 	
