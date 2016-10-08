@@ -12,16 +12,23 @@ public class Prestito {
 	public Prestito() {
 		
 	}
-
-	public Prestito(Utente utente, Libro libro, Date dataPrestito,
-			Date dataRestituzione,Date dataScadenza) {
+	
+	public Prestito(Utente utente, Libro libro, Date dataPrestito) {
 		
 		this.utente = utente;
 		this.libro = libro;
 		this.dataPrestito = dataPrestito;
-		this.dataRestituzione = dataRestituzione;
-		this.dataScadenza=dataScadenza;
 	}
+
+//	public Prestito(Utente utente, Libro libro, Date dataPrestito,
+//			Date dataRestituzione,Date dataScadenza) {
+//		
+//		this.utente = utente;
+//		this.libro = libro;
+//		this.dataPrestito = dataPrestito;
+//		this.dataRestituzione = dataRestituzione;
+//		this.dataScadenza=dataScadenza;
+//	}
 
 	public Utente getUtente() {
 		return utente;
@@ -54,6 +61,16 @@ public class Prestito {
 	public void setDataRestituzione(Date dataRestituzione) {
 		this.dataRestituzione = dataRestituzione;
 	}
+
+	public Date getDataScadenza() {
+		return dataScadenza;
+	}
+
+	public void setDataScadenza(Date dataScadenza) {
+		this.dataScadenza = dataScadenza;
+	}
+	
+	
 			
 
 }

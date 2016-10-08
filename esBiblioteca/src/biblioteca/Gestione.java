@@ -5,17 +5,19 @@ import java.util.Date;
 
 import javax.xml.crypto.Data;
 
-import mioDate.DataUtility;
+import mioDate.DateUtility;
 
 //import java.util.List;
 
 public class Gestione {
 
+	
+	
 	public Libro registraLibro(Biblioteca b,String titolo, 
 			String autore,String serialNumber,int cp){
 		
-		Libro l=b.getLibri().get(serialNumber);	//se nn trovo il libro nella map restituisce null
-		if(l!=null){	// se il libro esiste, aggiorno copie disponibili e copie totali
+		Libro l=b.getLibri().get(serialNumber);		//se nn trovo il libro nella map restituisce null
+		if(l!=null){				// se il libro esiste, aggiorno copie disponibili e copie totali
 			l.setCopieTotali(l.getCopieTotali()+cp);
 			l.setCopieDisponibili(l.getCopieDisponibili()+cp);
 		}else { //se il libro nn esisteva, lo registro
@@ -45,26 +47,33 @@ public class Gestione {
 		return u;
 	}
 	
-	public boolean prestaLibro(Biblioteca b,String serialNumber,String codiceFiscale){
+	public boolean prestaLibro(Biblioteca b,String serialNumber,String codiceFiscale,Date dataOggi){
 		boolean result=false;
 			
-		DataUtility dt=new DataUtility();
+		DateUtility dt=new DateUtility();
 		Libro l=b.getLibri().get(serialNumber);
 		
 		Utente u=b.getUtenti().get(codiceFiscale);
 		
 		
-		if(l!=null && u!=null && u.getNumeroLibri()<3 && l.getCopieDisponibili()>0 && (!u.getLibri().containsKey(serialNumber)) ){
-			
-//			Date currentData=new Date();
-//			Calendar cal= dt.convertDateToCalendar(currentData);
-//			cal.add(Calendar.DATE, 14);
-			
-			//Data dataScadenza=cal.getTime();
+//		Data dataPrest=(Data) DateUtility.convertStringToDate(dataOggi);
+		
+		if(l!=null && u!=null && u.getNumeroLibri()<3 
+				&& l.getCopieDisponibili()>0 && (!u.getLibri().containsKey(serialNumber))){
 			
 			
+			Calendar cal= dt.convertJavaDateToCalendar(dataOggi);
+			cal.add(Calendar.DAY_OF_MONTH, 14);
+			
+			Date dataScadenza= dt.convertCalendarToJavaDate(cal);
+			
+						
 			u.aggiungiLibro(l);
 			l.setCopieDisponibili(l.getCopieDisponibili()-1);
+			Prestito p=new Prestito(u,l,dataOggi);
+			p.setDataScadenza(dataScadenza);
+			b.aggiungiPrestito(p);
+			
 			result =true;			
 		}
 		
@@ -74,15 +83,22 @@ public class Gestione {
 	public boolean restituisciLibro(Biblioteca b,String serialNumber,String codiceFiscale){
 		boolean result=false;
 		
+		
+		
 		//Libro l=null;
 		Libro l=b.getLibri().get(serialNumber);
 				
 		//Utente u=null;
 		Utente u=b.getUtenti().get(codiceFiscale);
-				
-		if(l!=null && u!=null && u.getNumeroLibri()<3){
+		
+		
+		
+		
+		if(l!=null && u!=null && u.getLibri().containsKey(serialNumber)){
+			
 			u.eliminaLibro(l);
 			l.setCopieDisponibili(l.getCopieDisponibili()+1);
+			
 			result =true;			
 		}		
 							

@@ -1,5 +1,9 @@
 package testMain;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
 import java.util.Map;
 
 import biblioteca.*;
@@ -47,17 +51,25 @@ public class BibliotecaTest {
 	
 	System.out.println("\nPrestito Libri: ");
 	
-	if(g.prestaLibro(b, "a","maro")==true){
-		System.out.println("Libro prestato  !");
-	}else{
-		System.out.println("Impossibile prestare!");
-	}
-	if(g.prestaLibro(b, "a","maro")==true){
-		System.out.println("Libro prestato  !");
-	}else{
-		System.out.println("Impossibile prestare!");
+	
+	GregorianCalendar gc= new GregorianCalendar();
+	
+	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	String str1 = "31/12/2016";
+	try {
+		gc.setTime(sdf.parse(str1));
+	} catch (ParseException e) {
+		e.printStackTrace();
 	}
 	
+	java.util.Date data1=gc.getTime();
+	
+		if(g.prestaLibro(b, "a","maro",data1)==true){
+		System.out.println("Libro prestato  !");
+	}else{
+		System.out.println("Impossibile prestare!");
+	}
+		
 	System.out.println("\nResituzione libri: ");
 	if(g.restituisciLibro(b, "a", "maro")==true){
 		System.out.println("Libro restituito!");

@@ -1,8 +1,10 @@
 package biblioteca;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -11,7 +13,7 @@ public class Biblioteca implements ValidaDati {
 	
 	private Map <String,Utente> utenti=new HashMap<String,Utente>();
 	private Map<String, Libro> libri=new HashMap<String,Libro>();
-	
+	private List <Prestito> prestito=new ArrayList<Prestito>();
 
 	public Biblioteca() {
 		
@@ -37,10 +39,6 @@ public class Biblioteca implements ValidaDati {
 		this.utenti = utenti;
 	}
 
-
-	public void aggiungiUtente(Utente u){
-		this.utenti.put(u.getCodiceFiscale(), u);
-	}
 	
 	public Map<String, Libro> getLibri() {
 		return libri;
@@ -50,8 +48,27 @@ public class Biblioteca implements ValidaDati {
 		this.libri = libri;
 	}
 	
+
+	public List <Prestito> getPrestito() {
+		return prestito;
+	}
+
+	public void setPrestito(List <Prestito> prestito) {
+		this.prestito = prestito;
+	}
+		
+	
+	
+	public void aggiungiUtente(Utente u){
+		this.utenti.put(u.getCodiceFiscale(), u);
+	}
+	
 	public void aggiungiLibro(Libro l){
 		this.libri.put(l.getSerialNumber(),l);
+	}
+	
+	public void aggiungiPrestito(Prestito p){
+		this.prestito.add(p);
 	}
 	
 	
@@ -86,5 +103,5 @@ public String stampaUtenti(Map<String, Utente> utenti ){
 		}
 		return result;
 	}
-	
+
 }

@@ -8,8 +8,8 @@ public class Utente implements ValidaDati {
 	protected String nome;
 	protected String cognome;
 	private String codiceFiscale;
-	private boolean validi; //falso se nn ha restitutito un libro 
-							//prestato da 2 settimane
+//	private boolean validi; 	//falso se nn ha restitutito un libro 
+								//prestato da 2 settimane
 	
 	private Map <String,Libro> libri=new HashMap<String,Libro>();	//metto i libri che l'utente prende in prestito
 
@@ -67,6 +67,21 @@ public class Utente implements ValidaDati {
 	public void setLibri(Map<String, Libro> libri) {
 		this.libri = libri;
 	}
+	
+	// Metodo che mi da la size della mappa, cioè quanti libri in prestito ha l'utente
+	public int getNumeroLibri(){
+		 return this.libri.size();	
+	}
+	
+	// Metodo per aggiuungere un libro ai prestiti dell'utente
+	public void aggiungiLibro(Libro l){
+		this.libri.put(l.getSerialNumber(), l);
+	}
+	
+	//Metodo per eliminare un libro dai prestiti dell'utente
+	public void eliminaLibro(Libro l){
+		this.libri.remove(l.getSerialNumber());
+	}
 
 	@Override
 	public boolean isValid() {
@@ -78,17 +93,7 @@ public class Utente implements ValidaDati {
 		return result;
 	}
 	
-	public int getNumeroLibri(){
-		 return this.libri.size();	//mi da la size della mappa, cioè quanti libri ha l'utente
-	}
 	
-	public void aggiungiLibro(Libro l){
-		this.libri.put(l.getSerialNumber(), l);
-	}
-	
-	public void eliminaLibro(Libro l){
-		this.libri.remove(l.getSerialNumber());
-	}
 		
 
 }
