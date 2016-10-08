@@ -19,26 +19,27 @@ public class TestCampionato {
 				ServizioCampionato sc = new ServizioCampionato();
 				
 				// Creo e registro giocatori
-				Giocatore g1 = new Giocatore("Gonzalo", "Higuain", "01");
-				Giocatore g2 = new Giocatore("Leo", "Bonny", "02");
-				Giocatore g3 = new Giocatore("Paolo", "Dybala", "03");
+				Giocatore g1 = new Giocatore("Gonzalo", "Higuain", "01","Attaccante",28);
+				Giocatore g2 = new Giocatore("Leo", "Bonny", "02","Difensore",26);
+				Giocatore g3 = new Giocatore("Paolo", "Dybala", "03","Attaccante",22);
 				//Giocatore gprova = new Giocatore("Paolo", "Dybala", "03");
-				Giocatore g4 = new Giocatore("Giorgio", "Chiellini", "04");
-				Giocatore g5= new Giocatore ("Javier","Zanetti","05");
-				Giocatore g6= new Giocatore ("Mauro","Icardi","06");
-				Giocatore g7= new Giocatore ("Carlos","Bacca","07");
+				Giocatore g4 = new Giocatore("Giorgio", "Chiellini", "04","Difensore",31);
+				Giocatore g5= new Giocatore ("Javier","Zanetti","05","Difensore",38);
+				Giocatore g6= new Giocatore ("Mauro","Icardi","06","Attaccante",22);
+				Giocatore g7= new Giocatore ("Carlos","Bacca","07","Attaccante",29);
 	
-				sc.registraGiocatore(c, g1.getNome(), g1.getCognome(), g1.getCodiceFiscale());
-				sc.registraGiocatore(c, g2.getNome(), g2.getCognome(), g2.getCodiceFiscale());
-				sc.registraGiocatore(c, g3.getNome(), g3.getCognome(), g3.getCodiceFiscale());
+				sc.registraGiocatore(c, g1.getNome(), g1.getCognome(), g1.getCodiceFiscale(),g1.getRuolo(),g1.getEtà());
+				sc.registraGiocatore(c, g2.getNome(), g2.getCognome(), g2.getCodiceFiscale(),g2.getRuolo(),g2.getEtà());
+				sc.registraGiocatore(c, g3.getNome(), g3.getCognome(), g3.getCodiceFiscale(),g3.getRuolo(),g3.getEtà());
 				//sc.registraGiocatore(c, gprova.getNome(), gprova.getCognome(), gprova.getCodiceFiscale());
-				sc.registraGiocatore(c, g4.getNome(), g4.getCognome(), g4.getCodiceFiscale());
-				sc.registraGiocatore(c, g5.getNome(), g5.getCognome(), g5.getCodiceFiscale());
-				sc.registraGiocatore(c, g6.getNome(), g6.getCognome(), g6.getCodiceFiscale());
-				sc.registraGiocatore(c, g7.getNome(), g7.getCognome(), g7.getCodiceFiscale());
+				sc.registraGiocatore(c, g4.getNome(), g4.getCognome(), g4.getCodiceFiscale(),g4.getRuolo(),g4.getEtà());
+				sc.registraGiocatore(c, g5.getNome(), g5.getCognome(), g5.getCodiceFiscale(),g5.getRuolo(),g5.getEtà());
+				sc.registraGiocatore(c, g6.getNome(), g6.getCognome(), g6.getCodiceFiscale(),g6.getRuolo(),g6.getEtà());
+				sc.registraGiocatore(c, g7.getNome(), g7.getCognome(), g7.getCodiceFiscale(),g7.getRuolo(),g7.getEtà());
 				
-				// Stampa mappa giocatori
-//				System.out.println(c.stampaGiocatori(c.getMappaGiocatore()));
+//				 Stampa mappa giocatori
+				System.out.println("MAPPA GIOCATORI REGISTRATI");
+				System.out.println(c.stampaGiocatori(c.getMappaGiocatore()));
 			
 				
 				//Creo e registro Squadre
@@ -53,7 +54,8 @@ public class TestCampionato {
 				sc.registraSquadra(c, s4.getNome());
 				
 				// Stampa mappa squadre
-//				System.out.println(c.stampaSquadre(c.getMappaSquadra()));
+				System.out.println("\nMAPPA SQUADRE REGISTRATE");
+				System.out.println(c.stampaSquadre(c.getMappaSquadra()));
 				
 				
 				//Assegno giocatore a squadra e stampo
@@ -92,7 +94,7 @@ public class TestCampionato {
 				sc.registraPartita(c, s1, s3, 2, 1, date, goleadori, espulsi, ammoniti);
 				
 //				System.out.println(c.stampaGiocatori(c.getMappaGiocatore()));
-				System.out.println(c.stampaSquadre(c.getMappaSquadra()));
+//				System.out.println(c.stampaSquadre(c.getMappaSquadra()));
 			
 				System.out.println("\nCapocannoniere\t"+sc.getCapocannoniere(c));	
 				

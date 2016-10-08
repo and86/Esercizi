@@ -16,7 +16,7 @@ public class Giocatore {
 		
 	}
 
-	public Giocatore(String nome, String cognome, String codiceFiscale) {
+	public Giocatore(String nome, String cognome, String codiceFiscale,String ruolo,int età) {
 //		super();
 		this.nome = nome;
 		this.cognome = cognome;

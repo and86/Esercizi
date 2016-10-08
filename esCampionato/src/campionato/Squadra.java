@@ -19,15 +19,15 @@ public class Squadra {
 		
 	}
 
-	public Squadra(String nome, int punti, int retiSubiti, int retiFatti,
-			int differenzaReti) {
-		
-		this.nome = nome;
-		this.punti = punti;
-		this.retiSubiti = retiSubiti;
-		this.retiFatti = retiFatti;
-		this.differenzaReti = differenzaReti;
-	}
+//	public Squadra(String nome, int punti, int retiSubiti, int retiFatti,
+//			int differenzaReti) {
+//		
+//		this.nome = nome;
+//		this.punti = punti;
+//		this.retiSubiti = retiSubiti;
+//		this.retiFatti = retiFatti;
+//		this.differenzaReti = differenzaReti;
+//	}
 	
 	public Squadra(String nome){
 		this.nome=nome;

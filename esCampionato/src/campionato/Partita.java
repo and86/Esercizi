@@ -3,7 +3,7 @@ package campionato;
 import java.util.Date;
 
 public class Partita {
-	private Date data = new Date();
+	private Date data;
 	private String squadraCasa;
 	private String squadraOspite;
 	private int retiDellaSquadraCasa;
@@ -15,14 +15,15 @@ public class Partita {
 	}
 
 	public Partita(Date data, String squadraCasa, String squadraOspite,
-			int retiDellaSquadraCasa, int retiDellaSquadraOspite, char risultato) {
+			int retiDellaSquadraCasa, int retiDellaSquadraOspite,char risultato) {
 		super();
 		this.data = data;
 		this.squadraCasa = squadraCasa;
 		this.squadraOspite = squadraOspite;
 		this.retiDellaSquadraCasa = retiDellaSquadraCasa;
 		this.retiDellaSquadraOspite = retiDellaSquadraOspite;
-		this.risultato = risultato;
+		this.risultato=risultato;
+		
 	}
 
 	public Date getData() {
