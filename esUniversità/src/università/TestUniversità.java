@@ -13,11 +13,9 @@ public static void main(String[] args) {
 	Studente s4=s.registraStudente(u, "Franco", "Belli");
 	Studente s5=s.registraStudente(u, "Luca", "Verdi");
 	
-	for(Studente st: u.getStudenti()){
-		System.out.println(st.getNome()+ " "+st.getCognome()+ " "+st.getMatricola());
-	}
+	System.out.println(u.stampaStudenti());
 	
-	System.out.println("Registra Docente: ");
+	System.out.println("\nRegistra Docente: ");
 	Docente d1=s.registraDocente(u, "Mmmm", "Lmmmm", "lamsjd");
 	Docente d2=s.registraDocente(u, "Nnnnn", "Gtttt", "aaaa");
 	Docente d3=s.registraDocente(u, "Annnn", "yryryry", "sssd");
@@ -25,7 +23,7 @@ public static void main(String[] args) {
 	
 	System.out.println(u.stampaDocenti());
 	
-	System.out.println("Registra Corsi: ");
+	System.out.println("\nRegistra Corsi: ");
 	Corso c1=s.registraCorso(u, "Fisica", 10);
 	Corso c2=s.registraCorso(u, "Analisi", 15);
 	Corso c3=s.registraCorso(u, "Informatica",30);

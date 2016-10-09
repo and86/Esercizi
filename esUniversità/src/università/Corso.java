@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Corso implements ValidaDato {
+	
 	private String nome;
 	private int ore;
 	private List <Studente> studenti=new ArrayList<Studente>();

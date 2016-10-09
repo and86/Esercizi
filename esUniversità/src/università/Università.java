@@ -81,6 +81,15 @@ public String stampaDocenti(){
 		}
 		return str;
 	}
+
+public String stampaStudenti(){
+	
+	String str="";
+	for(Studente st: studenti){
+		str+=("\n"+st.getNome()+" "+st.getCognome()+" "+st.getMatricola());
+	}
+	return str;
+}
 	
 	
 

@@ -8,17 +8,6 @@ public class Studente extends Utente implements ValidaDato {
 	private double media;
 	
 
-	@Override
-	public boolean isValid() {
-		boolean res=false;
-		if (!nome.isEmpty() && cognome!=null){
-			res=true;
-		}
-		return res;
-	}
-
-
-
 	public Studente() {
 		
 	}
@@ -52,6 +41,16 @@ public class Studente extends Utente implements ValidaDato {
 
 	public void setMedia(double media) {
 		this.media = media;
+	}
+	
+	
+	@Override
+	public boolean isValid() {
+		boolean res=false;
+		if (!nome.isEmpty() && cognome!=null){
+			res=true;
+		}
+		return res;
 	}
 
 	
